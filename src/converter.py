@@ -253,8 +253,7 @@ def ensure_layout():
     if not env.is_file():
         example = root / ".env.example"
         template = example.read_text(encoding="utf-8") if example.is_file() else ""
-        template = template.replace("loomy2api 运行时配置", "Hm2api 运行时配置").replace(
-            "留空默认 loomy2api/data", "留空默认 data/")
+        template = template  # .env.example 已是 Hm2api 文案
         try:
             env.write_text(template, encoding="utf-8", newline="\n")
             created = True

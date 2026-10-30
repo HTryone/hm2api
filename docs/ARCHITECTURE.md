@@ -6,7 +6,6 @@ core/                   # 与平台无关的机制
   upstreams.py          # 平台注册表：session_key / url_key / headers_for / credit / catalog / dynamic_base
   upstream_proxy.py     # 按平台选 URL、头模板、计费改写；public_id → upstream_id 还原
   session_provider.py   # 会话提供者契约（SessionError）
-  model_catalog.py(旧)  # 已迁至 platforms/loomy/catalog.py
   settings.py / state_store.py / control_store.py / audit_store.py
   admin_api.py / admin_auth.py / gateway_management.py / inbound_limits.py
   inference_auth.py / inference_resources.py / observability.py / request_context.py / runtime.py / session_labels.py

@@ -19,3 +19,9 @@ tmp/
 cred/*
 !cred/README.md
 !cred/*/README.md
+
+# 前端：依赖与构建产物（ui/ 下不再单独放 .gitignore）
+ui/node_modules/
+ui/dist/
+ui/.vite/
+ui/*.tsbuildinfo
