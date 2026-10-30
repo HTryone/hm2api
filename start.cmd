@@ -15,6 +15,18 @@ if not exist "cred\loomy" mkdir "cred\loomy" >nul 2>&1
 if not exist "cred\qwenwork" mkdir "cred\qwenwork" >nul 2>&1
 if not exist ".env" if exist ".env.example" copy /y ".env.example" ".env" >nul 2>&1
 
+rem --- 1.5 build frontend when the compiled assets are missing ---
+if not exist "ui\dist\index.html" (
+  where pnpm >nul 2>&1
+  if errorlevel 1 (
+    echo [warn] ui\dist missing and pnpm not found: dashboard will be unavailable, API still works.
+    echo        Install Node.js + pnpm, then run ui\build.cmd
+  ) else (
+    echo Building frontend for the first time ...
+    pushd "ui" && call pnpm install && call pnpm run build & popd
+  )
+)
+
 rem --- 2. status check only ---
 netstat -ano | findstr ":%PORT%" | findstr LISTENING >nul 2>&1
 if not errorlevel 1 (

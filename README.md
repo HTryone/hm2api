@@ -12,6 +12,8 @@
 
 1. 装一次 [uv](https://docs.astral.sh/uv/)（Windows：`powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`）。
 2. **双击仓库根目录的 `启动Hm2网关.vbs`**（或无窗口不方便时双击 `start.cmd`）。
+   前端是构建产物、不随仓库下发：首次启动脚本会自动 `pnpm install && pnpm build`（需要 Node）；
+   没装 Node 时 API 照常可用，只是面板不可用，装好 Node 后跑一次 `ui\build.cmd` 即可。
    首次运行会自动完成：建 `data/`、`cred/loomy/`、`cred/qwenwork/`、`logs/`，
    从 `.env.example` 生成 `.env`，**生成随机 API Key 并写回 `.env`**，安装依赖。
 3. 打开 <http://127.0.0.1:8788/dashboard/>，概览页「接入信息」里就能看到

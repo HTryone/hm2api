@@ -33,4 +33,5 @@ pnpm typecheck  # vue-tsc 类型检查
 pnpm build      # 输出到 dist/，资源路径为 /dashboard/assets/*
 ```
 
-构建后 `dist/` 提交进仓库，后端直接托管 `/dashboard/`；改完前端记得 `git add ui/dist`。
+`dist/` 是**构建产物，不进仓库**（已在 `ui/.gitignore` 忽略）；后端直接托管 `dist/`，
+所以新拉下来的仓库要先构建一次：`ui\build.cmd`（或 `pnpm install && pnpm build`）。
